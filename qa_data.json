@@ -1,0 +1,715 @@
+{
+  "version": "7.7",
+  "savedAt": "2026-05-28T01:03:29.515Z",
+  "bugs": [
+    {
+      "id": "BUG-001",
+      "title": "Article: 1 en détail vs '(2 Articles)' en liste",
+      "sev": "Critique",
+      "module": "Détail commande",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Ouvrir la commande #100025\n2. Observer 'Article: 0'",
+      "actual": "'Article: 1' affiché en détail alors que la \"Quantité:2\" est affiché sur le produit \"Double Smash\"",
+      "expected": "Nombre d'articles identique entre liste et détail",
+      "impact": "Données corrompues visibles - risque d'erreur de préparation",
+      "assignee": "",
+      "notes": "Confirmé visuellement sur capture"
+    },
+    {
+      "id": "BUG-002",
+      "title": "Toggle 'Fermé' actif avec commandes toujours réceptionnées",
+      "sev": "Bloquant",
+      "module": "Toggle",
+      "status": "Fermé",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Activer le toggle\n2. Vérifier côté client",
+      "actual": "Toggle activé (violet) mais commandes actives présentes",
+      "expected": "Aucune nouvelle commande si restaurant fermé",
+      "impact": "Clients peuvent commander dans un restaurant fermé",
+      "assignee": "",
+      "notes": "À vérifier si commandes préexistaient"
+    },
+    {
+      "id": "BUG-003",
+      "title": "Commande #100011 bloquée en 'Prêt' depuis 30 jours sans alerte",
+      "sev": "Critique",
+      "module": "Statuts",
+      "status": "Fermé",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Aller dans 'Prêt pour la remise'\n2. Observer #100011 datée du 13 Avr 2026",
+      "actual": "Commande du 13 Avr visible au 13 Mai sans alerte",
+      "expected": "Indicateur visuel d'alerte pour commandes > X heures",
+      "impact": "Commande client non remise, litige possible, paiement prélevé",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-004",
+      "title": "Illustration livreur scooter affichée pour commande Click&Collect",
+      "sev": "Critique",
+      "module": "Détail commande",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Ouvrir n'importe quelle commande Click&Collect",
+      "actual": "Illustration de livreur à scooter",
+      "expected": "Illustration de retrait en magasin",
+      "impact": "Confusion UX pour le restaurateur sur le type de commande",
+      "assignee": "",
+      "notes": "Confirmé sur commandes #100021 et #100011"
+    },
+    {
+      "id": "BUG-005",
+      "title": "Champ 'Instructions de livraison' affiché pour Click&Collect",
+      "sev": "Majeur",
+      "module": "Détail commande",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Ouvrir une commande Click&Collect\n2. Observer les champs",
+      "actual": "Champ 'Instructions de livraison' visible",
+      "expected": "Champ absent ou masqué pour les commandes C&C",
+      "impact": "Information non pertinente, confusion possible",
+      "assignee": "",
+      "notes": "Confirmé sur 2 commandes C&C"
+    },
+    {
+      "id": "BUG-006",
+      "title": "Champ 'Si produit indisponible' vide sans placeholder",
+      "sev": "Majeur",
+      "module": "Détail commande",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Ouvrir une commande\n2. Observer le champ",
+      "actual": "Champ vide, pas de valeur ni de placeholder",
+      "expected": "'Non renseigné' ou champ masqué si pas de valeur",
+      "impact": "Restaurateur ne sait pas quoi faire en cas de rupture",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-007",
+      "title": "Badge cloche sans compteur chiffré",
+      "sev": "Majeur",
+      "module": "Notifications",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Observer la cloche avec badge violet",
+      "actual": "Badge violet sans chiffre",
+      "expected": "Badge avec nombre de notifications non lues",
+      "impact": "Restaurateur ne sait pas combien de commandes sont en attente",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-008",
+      "title": "Onglets tronqués sans indication de scroll horizontal",
+      "sev": "Majeur",
+      "module": "Navigation",
+      "status": "Fermé",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Observer la barre d'onglets",
+      "actual": "Dernier onglet affiché comme 'Pré...'",
+      "expected": "Indicateur de scroll ou chevron visible",
+      "impact": "Onglet inaccessible si utilisateur ne sait pas scroller",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-009",
+      "title": "Faute grammaticale 'La commande est Confirmé'",
+      "sev": "Cosmétique",
+      "module": "Détail commande",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Ouvrir une commande en statut Confirmé",
+      "actual": "'La commande est Confirmé'",
+      "expected": "'La commande est Confirmée'",
+      "impact": "Aucun impact fonctionnel mais image de marque dégradée",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-010",
+      "title": "'Livrer la commande' et photo demandés pour Click&Collect",
+      "sev": "Critique",
+      "module": "Photo / C&C",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Ouvrir commande #100011 (C&C)\n2. En 'Prêt pour la remise'\n3. Observer l'action et la modale",
+      "actual": "'Faites glisser pour livrer' + modale 'Prendre une photo'",
+      "expected": "'Faites glisser pour remettre' + pas de photo pour C&C",
+      "impact": "Flux de livraison appliqué à tort sur une remise en main propre",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-011",
+      "title": "Texte bouton glisser tronqué à gauche",
+      "sev": "Majeur",
+      "module": "Détail commande",
+      "status": "Fermé",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Ouvrir commande #100011\n2. Observer le bouton glisser",
+      "actual": "'ites glisser pour livrer...' (F coupé par icône)",
+      "expected": "'Faites glisser pour livrer la commande' complet",
+      "impact": "UX dégradée, instruction incomplète lisible",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-012",
+      "title": "Historique des commandes : spinner de chargement infini",
+      "sev": "Bloquant",
+      "module": "Historique",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Naviguer vers l'onglet Historique\n2. Attendre 60 secondes",
+      "actual": "Spinner partiel visible, contenu vide, jamais de données",
+      "expected": "Liste des commandes historiques chargée en < 3 secondes",
+      "impact": "L'historique est totalement inaccessible - pas de traçabilité possible",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-013",
+      "title": "'9 Total des commandes' en profil vs '0' dans l'historique",
+      "sev": "Critique",
+      "module": "Historique / Profil",
+      "status": "Fermé",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Vérifier profil : 9 commandes\n2. Ouvrir historique",
+      "actual": "Historique vide (0 partout)",
+      "expected": "9 commandes visibles dans l'historique",
+      "impact": "Données désynchronisées - comptabilité impossible",
+      "assignee": "",
+      "notes": "Lié à BUG-012"
+    },
+    {
+      "id": "BUG-014",
+      "title": "'on Smash Burger' - texte anglais dans interface française",
+      "sev": "Majeur",
+      "module": "Coupons",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Naviguer vers 'Liste des coupons'\n2. Observer coupon TEST50",
+      "actual": "'on Smash Burger' en anglais",
+      "expected": "'sur Smash Burger' en français",
+      "impact": "Incohérence de langue, image de marque dégradée",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-015",
+      "title": "Mode sombre toggle ON mais interface affichée en mode clair",
+      "sev": "Majeur",
+      "module": "Profil / Thème",
+      "status": "Fermé",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Aller dans Profil\n2. Observer toggle 'Mode sombre' (noir = ON)\n3. Observer interface",
+      "actual": "Interface en mode clair",
+      "expected": "Interface en mode sombre si toggle ON",
+      "impact": "Fonctionnalité non opérationnelle",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-016",
+      "title": "'Supprimer le compte' accessible sans confirmation forte visible",
+      "sev": "Critique",
+      "module": "Profil / Sécurité",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Aller dans Profil\n2. Appuyer sur 'Supprimer le compte'",
+      "actual": "Action déclenchée sans confirmation de mot de passe visible",
+      "expected": "Modale de confirmation forte avec saisie du mot de passe",
+      "impact": "Suppression accidentelle irréversible de toutes les données",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-017",
+      "title": "Aucun onglet 'Annulé' dans l'historique",
+      "sev": "Majeur",
+      "module": "Historique",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Observer les onglets historique : Tous / Livré / Remboursé",
+      "actual": "Pas d'onglet 'Annulé'",
+      "expected": "Onglet 'Annulé' pour tracer les refus et annulations",
+      "impact": "Traçabilité des annulations impossible",
+      "assignee": "",
+      "notes": ""
+    },
+    {
+      "id": "BUG-018",
+      "title": "Bloquant confirmé : notifications absentes",
+      "sev": "Bloquant",
+      "module": "Notifications",
+      "status": "Nouveau",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Fermer l'app\n2. Passer commande client\n3. Attendre",
+      "actual": "Aucune notification reçue",
+      "expected": "Notification sonore système",
+      "impact": "Commandes manquées si app est en arrière-plan",
+      "assignee": "",
+      "notes": "À valider en conditions réelles"
+    },
+    {
+      "id": "BUG-019",
+      "title": "Bloquant : suppression compte sans confirmation forte",
+      "sev": "Bloquant",
+      "module": "Profil / Sécurité",
+      "status": "Fermé",
+      "reporter": "QA",
+      "date": "15/05/2026",
+      "version": "7.7",
+      "device": "",
+      "os": "",
+      "steps": "1. Aller dans Profil\n2. Appuyer sur 'Supprimer le compte'",
+      "actual": "Aucune confirmation de saisie de mot de passe requise",
+      "expected": "Modale de confirmation forte avec saisie du mot de passe",
+      "impact": "Risque de suppression irréversible de toutes les données",
+      "assignee": "",
+      "notes": ""
+    }
+  ],
+  "checklist": [
+    {
+      "cat": "Réception commandes",
+      "item": "Nouvelle commande reçue avec son (app ouverte)",
+      "status": "OK",
+      "notes": "",
+      "_id": 0
+    },
+    {
+      "cat": "Réception commandes",
+      "item": "Nouvelle commande reçue avec notification push (app fermée)",
+      "status": "OK",
+      "notes": "",
+      "_id": 1
+    },
+    {
+      "cat": "Réception commandes",
+      "item": "Compteur 'En attente' s'incrémente en temps réel",
+      "status": "OK",
+      "notes": "",
+      "_id": 2
+    },
+    {
+      "cat": "Réception commandes",
+      "item": "Notification cliquable ouvre le bon détail",
+      "status": "OK",
+      "notes": "",
+      "_id": 3
+    },
+    {
+      "cat": "Gestion des statuts",
+      "item": "Toutes les transitions de statuts fonctionnent correctement",
+      "status": "OK",
+      "notes": "",
+      "_id": 4
+    },
+    {
+      "cat": "Gestion des statuts",
+      "item": "Aucune transition inverse non autorisée",
+      "status": "OK",
+      "notes": "",
+      "_id": 5
+    },
+    {
+      "cat": "Gestion des statuts",
+      "item": "Compteurs d'onglets toujours exacts",
+      "status": "OK",
+      "notes": "",
+      "_id": 6
+    },
+    {
+      "cat": "Gestion des statuts",
+      "item": "Synchro temps réel entre appareils vérifiée",
+      "status": "OK",
+      "notes": "",
+      "_id": 7
+    },
+    {
+      "cat": "Gestion des statuts",
+      "item": "Pas de commande dans deux onglets simultanément",
+      "status": "OK",
+      "notes": "",
+      "_id": 8
+    },
+    {
+      "cat": "Détail de commande",
+      "item": "Nombre d'articles cohérent liste et détail",
+      "status": "À tester",
+      "notes": "BUG-001 : Article 0 pour #100021",
+      "_id": 9
+    },
+    {
+      "cat": "Détail de commande",
+      "item": "Illustration cohérente avec type de commande",
+      "status": "À tester",
+      "notes": "BUG-004 : livreur scooter sur C&C",
+      "_id": 10
+    },
+    {
+      "cat": "Détail de commande",
+      "item": "Champs contextuels selon C&C ou Livraison",
+      "status": "À tester",
+      "notes": "BUG-005 : Instructions livraison sur C&C",
+      "_id": 11
+    },
+    {
+      "cat": "Détail de commande",
+      "item": "Champ 'Si produit indisponible' affiche une valeur",
+      "status": "À tester",
+      "notes": "BUG-006 : champ vide",
+      "_id": 12
+    },
+    {
+      "cat": "Détail de commande",
+      "item": "Délai de livraison cohérent et réaliste",
+      "status": "OK",
+      "notes": "",
+      "_id": 13
+    },
+    {
+      "cat": "Détail de commande",
+      "item": "Bouton téléchargement fonctionnel",
+      "status": "OK",
+      "notes": "",
+      "_id": 14
+    },
+    {
+      "cat": "Détail de commande",
+      "item": "Texte du bouton glisser complet et lisible",
+      "status": "OK",
+      "notes": "BUG-011 : texte tronqué",
+      "_id": 15
+    },
+    {
+      "cat": "Actions",
+      "item": "Glissement résistant au tap simple",
+      "status": "OK",
+      "notes": "",
+      "_id": 16
+    },
+    {
+      "cat": "Actions",
+      "item": "Glissement partiel annulé sans effet",
+      "status": "OK",
+      "notes": "",
+      "_id": 17
+    },
+    {
+      "cat": "Actions",
+      "item": "Impression du ticket complète et correcte",
+      "status": "OK",
+      "notes": "",
+      "_id": 18
+    },
+    {
+      "cat": "Actions",
+      "item": "Double impression protégée",
+      "status": "OK",
+      "notes": "",
+      "_id": 19
+    },
+    {
+      "cat": "Photo livraison",
+      "item": "Photo demandée uniquement pour Livraison (pas C&C)",
+      "status": "KO",
+      "notes": "BUG-010 : photo demandée pour C&C",
+      "_id": 20
+    },
+    {
+      "cat": "Photo livraison",
+      "item": "Fermeture modale X : comportement défini",
+      "status": "OK",
+      "notes": "",
+      "_id": 21
+    },
+    {
+      "cat": "Photo livraison",
+      "item": "Terminologie correcte selon le type de commande",
+      "status": "KO",
+      "notes": "BUG-010 : 'livrer' pour C&C",
+      "_id": 22
+    },
+    {
+      "cat": "Toggle restaurant fermé",
+      "item": "Activation bloque les nouvelles commandes côté client",
+      "status": "OK",
+      "notes": "BUG-002 suspecté",
+      "_id": 23
+    },
+    {
+      "cat": "Toggle restaurant fermé",
+      "item": "Confirmation demandée avant fermeture",
+      "status": "OK",
+      "notes": "",
+      "_id": 24
+    },
+    {
+      "cat": "Toggle restaurant fermé",
+      "item": "État persistant après fermeture/réouverture app",
+      "status": "OK",
+      "notes": "",
+      "_id": 25
+    },
+    {
+      "cat": "Toggle restaurant fermé",
+      "item": "Commandes en cours non affectées",
+      "status": "OK",
+      "notes": "",
+      "_id": 26
+    },
+    {
+      "cat": "Réseau",
+      "item": "Mode hors ligne géré avec message explicite",
+      "status": "OK",
+      "notes": "",
+      "_id": 27
+    },
+    {
+      "cat": "Réseau",
+      "item": "Reconnexion après perte de connexion",
+      "status": "OK",
+      "notes": "",
+      "_id": 28
+    },
+    {
+      "cat": "Réseau",
+      "item": "Actions hors ligne non perdues silencieusement",
+      "status": "OK",
+      "notes": "",
+      "_id": 29
+    },
+    {
+      "cat": "Réseau",
+      "item": "Latence élevée gérée avec indicateurs",
+      "status": "OK",
+      "notes": "",
+      "_id": 30
+    },
+    {
+      "cat": "Notifications",
+      "item": "Son d'alerte fonctionnel (app ouverte/arrière-plan/fermée)",
+      "status": "OK",
+      "notes": "",
+      "_id": 31
+    },
+    {
+      "cat": "Notifications",
+      "item": "Vibration active en mode silencieux",
+      "status": "OK",
+      "notes": "",
+      "_id": 32
+    },
+    {
+      "cat": "Notifications",
+      "item": "Notification annulation client reçue",
+      "status": "KO",
+      "notes": "",
+      "_id": 33
+    },
+    {
+      "cat": "Notifications",
+      "item": "Permissions de notification vérifiées au lancement",
+      "status": "KO",
+      "notes": "",
+      "_id": 34
+    },
+    {
+      "cat": "Notifications",
+      "item": "Badge cloche avec compteur chiffré",
+      "status": "KO",
+      "notes": "BUG-007 : badge sans chiffre",
+      "_id": 35
+    },
+    {
+      "cat": "Historique",
+      "item": "Historique chargé sans spinner infini",
+      "status": "OK",
+      "notes": "BUG-012 : chargement infini",
+      "_id": 36
+    },
+    {
+      "cat": "Historique",
+      "item": "Statistiques cohérentes avec les commandes réelles",
+      "status": "OK",
+      "notes": "BUG-013 et BUG-015",
+      "_id": 37
+    },
+    {
+      "cat": "Historique",
+      "item": "Filtre Annulé disponible",
+      "status": "KO",
+      "notes": "BUG-017 : filtre absent",
+      "_id": 38
+    },
+    {
+      "cat": "Coupons",
+      "item": "Libellés en français",
+      "status": "KO",
+      "notes": "BUG-014 : 'on Smash Burger' en anglais",
+      "_id": 39
+    },
+    {
+      "cat": "Coupons",
+      "item": "Création et suppression avec confirmation",
+      "status": "OK",
+      "notes": "",
+      "_id": 40
+    },
+    {
+      "cat": "Coupons",
+      "item": "Coupon expiré refusé",
+      "status": "OK",
+      "notes": "",
+      "_id": 41
+    },
+    {
+      "cat": "Profil",
+      "item": "Mode sombre fonctionnel",
+      "status": "OK",
+      "notes": "BUG-015 : toggle ON mais interface claire",
+      "_id": 42
+    },
+    {
+      "cat": "Profil",
+      "item": "Suppression compte avec confirmation forte",
+      "status": "OK",
+      "notes": "BUG-016 : pas de confirmation visible",
+      "_id": 43
+    },
+    {
+      "cat": "Profil",
+      "item": "Compteur total commandes cohérent",
+      "status": "OK",
+      "notes": "BUG-013 : 9 profil vs 0 historique",
+      "_id": 44
+    },
+    {
+      "cat": "Performance",
+      "item": "Démarrage < 3 secondes",
+      "status": "OK",
+      "notes": "",
+      "_id": 45
+    },
+    {
+      "cat": "Performance",
+      "item": "Navigation fluide sans saccades",
+      "status": "OK",
+      "notes": "",
+      "_id": 46
+    },
+    {
+      "cat": "Performance",
+      "item": "Pas de memory leak sur 2h",
+      "status": "OK",
+      "notes": "",
+      "_id": 47
+    },
+    {
+      "cat": "Performance",
+      "item": "20 commandes simultanées sans crash",
+      "status": "À tester",
+      "notes": "",
+      "_id": 48
+    },
+    {
+      "cat": "Cross-platform",
+      "item": "Testé sur Android",
+      "status": "OK",
+      "notes": "",
+      "_id": 49
+    },
+    {
+      "cat": "Cross-platform",
+      "item": "Testé sur iOS",
+      "status": "À tester",
+      "notes": "",
+      "_id": 50
+    },
+    {
+      "cat": "Cross-platform",
+      "item": "Testé en mode sombre",
+      "status": "OK",
+      "notes": "",
+      "_id": 51
+    }
+  ],
+  "remarks": []
+}
